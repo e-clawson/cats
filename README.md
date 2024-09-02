@@ -2,11 +2,9 @@
 
 # About 
 
-    For this project, we are required to make an SBA that fetches data from an external API. I originally decided to keep my project simple and fun by making an art site that uses the Art Institute of Chicago's API (AIC API - https://api.artic.edu/docs/#introduction). This seemed like a good API to use for this project especially because it has thorough and clear documentation, which should make for a more seamless project in the short timeline available. However, the documentation for post requests was outdated and it was unclear whether post requests were still possible. I had wanted to use an API other than the ones we had already used in class or for other projects, but I ended up using the CAT API since it has very clear user documentation for many types of requests, and I wanted to show I was capable of more than GET requests. 
+    Cat site is an SPA that utilizes TheCatAPI to display images of cats, information and images of cats by breed, and a list of your favorited cat images. 
 
-    My plan is to create a homepage where you can see a navigation bar, a search bar below, a filter bar where you can filter by breed, and a grid of cat pictures below. As you search or filter, different pieces of art will appear in the display. Each will have the option to see more information on that item, and will have a heart icon that you can click to add that piece to your favorites. 
-
-    There will be a tab in the nav bar for favorites that when clicked will display your favorited items. Since this doesn't have a backend or a user login, at this point, when a user refreshes the page, the favorited items will not persist. 
+    For this project, we were required to make an SBA that fetches data from an external API. I originally decided to keep my project simple and fun by making an art site that uses the Art Institute of Chicago's API (AIC API - https://api.artic.edu/docs/#introduction). This seemed like a good API to use for this project especially because it has thorough and clear documentation, which should make for a more seamless project in the short timeline available. However, the documentation for post requests was outdated and it was unclear whether post requests were still possible. I had wanted to use an API other than the ones we had already used in class or for other projects, but I ended up using the CAT API since it has very clear user documentation for many types of requests, and I wanted to show I was capable of more than GET requests. 
 
 # Installation 
 
@@ -34,7 +32,7 @@ This assessment measures your capability to implement advanced JavaScript tools 
 This assessment has a total duration of two (2) days. This is a take-home assessment.
 You have two total days (including weekends and holidays) to work on this assessment. This assessment will be due at 5:00pm on the second day after it is assigned. Your instructor may provide you with class time to work on the assessment, schedule permitting.
 
-Assignment due - Friday, August 30 2024 at 11:59pm
+Assignment due - Tuesday, September 3, 8:00am(EST)
 
 # Objectives
     - Use asynchronous JavaScript tools to build a responsive web application.
@@ -66,23 +64,24 @@ Create your application locally, and initialize a local git repo. Make frequent 
 # Requirements (list)
 - Use the fetch API or Axios to communicate with an external web API. Use the data provided by this API to populate your application’s content and features. (20%)
 
-    - Using the Art Institute of Chicago(AIC) API (https://api.artic.edu/docs/#quick-start)
-    - index.js line 8 fetch()
+    - Using TheCatAPI (https://thecatapi.com/) - used a fetch request in index.js line 8 to get images of cats to populate the homepage 
 
 - Create user interaction with the API through a search feature, paginated gallery, or similar. This feature should use GET requests to retrieve associated data.(15%)
-    - search feature is using the data from initial load to decide what to display 
+
+    - added a filter feature that uses a GET request to populate the dropdown menu with a list of cats, and a get request to select the images and information of the selected cat breed based on the id. 
 
 - Enable user manipulation of data within the API through the use of POST, PUT, or PATCH requests. Ensure your chosen API supports this feature before beginning.(15%)
-    - AIC API allows PUT requests 
+
+    - working on a favoriteimg feature which allows users to click a favorite button and add that image to their favorites cat page, and delete cats from their favroites page 
 
 - Make use of Promises and async/await syntax as appropriate. (15%)
-    - done in the initialLoad function in index.js (lines 7-60)
+    - done in the initialLoad function in index.js (line 7)
+    - done in the BreedInfo function in filter.js (line 38)
 
 - Organize your JavaScript code into at least three (3) different module files, and import functions and data across files as necessary. (3%)
-    1. index.js - js file containting the function for the initial load of art information on cards, and the function for making the navbar work 
-    2. search.js - file containing the function for the search feature 
-    3. filter.js - file containing the fucntion for the filter feature 
-    4. favorites.js - file containing the function for the favroites feature 
+    1. index.js - js file containting the function for the initial load of cat images for the homepage
+    2. filter.js - file containing the fucntion for the filter feature that filters cats by breed and displays information and images pertaining to that breed only
+    3. favorites.js - file containing the function for the favroites feature 
 
 - Ensure the program runs as expected, without any undesired behavior caused by misunderstanding of the JavaScript event loop (such as race conditions, API calls being handled out of order, etc.). (5%)
     - so far so good
@@ -91,13 +90,13 @@ Create your application locally, and initialize a local git repo. Make frequent 
     - will do at the end
 
 - Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). (10%)
-    - currently running without error 
+    - currently running without errors (mostly - cat filter needs something to clear all the cats from the previous dropdown) 
 
 - Commit frequently to the git repository. (5%)
-    - currently at 21 commits 
+   
 
 - Include a README file that contains a description of your application. (2%)
     - please see above readme 
 
 - Level of effort displayed in creativity, presentation, and user experience. (5%)
-    - up to god and Oussama/Jade
+   

@@ -19,6 +19,7 @@ async function initialLoad(){
         catCard.classList.add("card");
         let cardImg = document.createElement("img");
         cardImg.setAttribute("src",imgUrl)
+        cardImg.setAttribute("id", "cat-image")
         let likeButton = document.createElement("button")
         likeButton.textContent = "favorite this cat"
         likeButton.setAttribute("type", "button")
@@ -36,9 +37,9 @@ initialLoad()
 //  Nav bar data 
 
 let navBarTabs = [
-    { text: "home", class:"", class:"home"},
-    { text: "Breed Filter", class:"", class:"filter" },
-    { text: "favorites", class:"", class:"favorite"},
+    { text: "HOME", class:"", class:"home"},
+    { text: "FILTER BY BREED", class:"", class:"filter" },
+    { text: "FAVORITES", class:"", class:"favorite"},
 ]
 
 //created NavBar
