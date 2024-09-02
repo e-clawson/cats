@@ -35,10 +35,19 @@ async function initialLoad(){
 }
 initialLoad()
 
-//  Nav bar 
+//  Nav bar data 
 
 let navBarTabs = [
     { text: "home", class:"", class:"home"},
     { text: "filter", class:"", class:"filter" },
     { text: "favorites", class:"", class:"favorite"},
 ]
+
+//created NavBar
+let navBar = document.createElement("nav");
+let headerEl = document.getElementById("header");
+headerEl.appendChild(navBar);
+navBar.classList.add("flex-around");
+
+
+
