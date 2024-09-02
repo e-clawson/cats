@@ -7,20 +7,27 @@ const catCardContainer = document.getElementById("card-container");
 async function initialLoad(){
     const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10")
     const jsonData = await response.json(); 
+    console.log(jsonData)
     await jsonData.forEach(element => {
         let id = element.id;
         let imgUrl = element.url;
+        
 
         //creating cat cards
         let catCard = document.createElement("div");
         catCard.setAttribute("id", id);
-        // artCard.setAttribute("style", "");
         catCard.classList.add("card");
         let cardImg = document.createElement("img");
         cardImg.setAttribute("src",imgUrl)
+        let likeButton = document.createElement("button")
+        likeButton.textContent = "favorite this cat"
+        likeButton.setAttribute("type", "button")
+        likeButton.setAttribute("onclick", "clikedLike()")
 
         catCardContainer.appendChild(catCard);
         catCard.appendChild(cardImg);
+        catCard.appendChild(likeButton);
+        
     });
 
 }

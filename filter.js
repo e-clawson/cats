@@ -23,6 +23,7 @@ breedLoad()
 
 // create eventlistener for the breedFilter element
 breedFilter.addEventListener("change", (event)=> {
+   
     let index = breedFilter.selectedIndex; 
     //getting the index of the cat breed within the array of cat breeds from breed load and caching in variable
    let selectedCatBreed = event.target[index];
@@ -77,5 +78,4 @@ async function breedInfoCard(catData) {
 
     infoCard.appendChild(breedCardName)
     infoCard.appendChild(breedCardDesc)
-    
 }
