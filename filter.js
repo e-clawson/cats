@@ -3,6 +3,8 @@
 //find the breed filter in index.html and cache to a variable "breedFilter"
 const breedFilter = document.getElementById("breed-filter")
 const infoCard = document.getElementById("filter-info")
+const catImgs = document.getElementById("filter-imgs")
+
 
 //start with a fetch request to get each of the breeds
 async function breedLoad(){
@@ -23,6 +25,13 @@ breedLoad()
 
 // create eventlistener for the breedFilter element
 breedFilter.addEventListener("change", (event)=> {
+
+
+    if (infoCard.hasChildNodes() === true | catImgs.hasChildNodes() === true) {
+        infoCard.replaceChildren();
+        catImgs.replaceChildren();
+    }
+
     let index = breedFilter.selectedIndex; 
     //getting the index of the cat breed within the array of cat breeds from breed load and caching in variable
    let selectedCatBreed = event.target[index];
@@ -66,13 +75,14 @@ async function breedInfo(id) {
 //displays breed info on the page 
 async function breedInfoCard(catData) {
     let catCardInfo = catData.breeds[0];
-    console.log(catCardInfo);
     let breedName = catCardInfo.name;
     let description = catCardInfo.description;
     // let origin = catCardInfo.origin;
     let breedCardName = document.createElement("h2")
+    breedCardName.setAttribute("id", "catName")
     breedCardName.textContent = breedName;
     let breedCardDesc = document.createElement("p")
+    breedCardName.setAttribute("id", "catDesc")
     breedCardDesc.textContent = description;
 
     infoCard.appendChild(breedCardName)
