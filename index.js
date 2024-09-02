@@ -8,10 +8,7 @@ async function initialLoad(){
     const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10")
     const jsonData = await response.json(); 
     console.log(jsonData)
-
-    let newData = jsonData;
-
-    await newData.forEach(element => {
+    await jsonData.forEach(element => {
         let id = element.id;
         //img
         // console.log(id)
@@ -45,7 +42,7 @@ let navBarTabs = [
 
 //created NavBar
 let navBar = document.createElement("nav");
-let headerEl = document.getElementById("header");
+let headerEl = document.getElementById("navbar");
 headerEl.appendChild(navBar);
 navBar.classList.add("flex-around");
 
@@ -88,8 +85,9 @@ function itemDisplay(otherInfo) {
     // let homeDivId = homeDiv.id;
     let homeDivArray = homeDiv.classList
     let realHomeDivArray = Array.from(homeDivArray)
+
     let filterDiv = document.getElementById("filter");
-    // let aboutDivId = aboutDiv.id;
+    let filterDivId = filterDiv.id;
     let filterDivArray = filterDiv.classList
     let realFilterDivArray = Array.from(filterDivArray)
 
@@ -99,17 +97,18 @@ function itemDisplay(otherInfo) {
 
     if (otherInfo.includes("home") && otherInfo.includes("active")) {
         homeDiv.classList.remove("default")
-        aboutDiv.classList.add("default");
+        filterDiv.classList.add("default");
         favoriteDiv.classList.add("default");
     } 
-    if (otherInfo.includes("about") == true && realFilterDivArray.includes("default")) {
+    if (otherInfo.includes("filter") == true && realFilterDivArray.includes("default")) {
+        console.log("hi")
         homeDiv.classList.add("default");
-        aboutDiv.classList.remove("default");
+        filterDiv.classList.remove("default");
         favoriteDiv.classList.add("default");
     } 
     if (otherInfo.includes("favorite") == true && realFavoriteDivArray.includes("default")) {
         homeDiv.classList.add("default");
-        aboutDiv.classList.add("default");
+        filterDiv.classList.add("default");
         favoriteDiv.classList.remove("default");
     }
   }

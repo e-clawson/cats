@@ -26,44 +26,43 @@
     <div id="navbar">
     </div>
 
-    <!-- About -->
-    <div id="about" class="default">
-        <h3>About This Site</h3>
-        <p>This site was created to practice API get requests and to enjoy and learn about cats and kittens </p>
-    </div>
-
     <!-- Main site area -->
-    <div id="page-body">
+    <div id="page-body" >
         <div id="home">
+            <!-- About -->
+            <div id="about">
+                <h3>About This Site</h3>
+                <p>This site was created to practice API get requests and to enjoy and learn about cats and kittens </p>
+            </div>
 
-        <!-- Search Bar -->
-        <div class="form-container"> 
-            <form class="form">
-                <input id="input" type="search" placeholder="search" onkeyup="search()">
-            </form>
+            <!-- Search Bar
+            <div class="form-container"> 
+                <form class="form">
+                    <input id="input" type="search" placeholder="search" onkeyup="search()">
+                </form>
+            </div> -->
+
+         <!-- display cards -->
+            <div id="cat-cards" >
+                <div id="card-container"></div>
+            </div>
+        </div>
+  
+        <!-- breed selection -->
+        <div id="filter" class="default">
+            <!-- add a dropdown that searches by breed and displays information and photos of that breed -->
+            <h2>Filter by Breed</h2>
+            <select id="breed-filter"> Filter by Breed</select>
+            <div id="filter-display">
+                <div id="filter-info"></div>
+                <div id="filter-imgs"></div>
+            </div>
         </div>
 
-     <!-- Filter Bar -->
-      <div class="filter-bar">
-        <!-- add a dropdown that searches by breed and displays information and photos of that breed -->
-         <h2>Filter by Breed</h2>
-         <select id="breed-filter"> Filter by Breed </select>
-         <div id="filter-info">
-            <div id="filter-imgs"></div>
-         </div>
-      </div>
-
-
-
-     <!-- display cards -->
-        <div id="cat-cards" >
-            <div id="card-container"></div>
+        <!-- Favorites -->
+        <div id="favorites" class="default" >
+            <div>boo</div>
         </div>
-    </div>
-
-    <!-- Favorites -->
-    <div id="favorites" class="default">
-        <div></div>
     </div>
 
 </body>
