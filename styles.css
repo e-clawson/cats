@@ -7,11 +7,26 @@ body {
     display: none;
 }
 
+h1 {
+    text-align: center;
+    font-size: 48px;
+    color:blueviolet;
+    padding: 20px;
+    margin: 0%;
+}
+
+#header {
+    background-color: aqua;
+    margin-bottom: 0%;
+    
+}
+
 /* navbar */
 nav {
     background-color: rgb(196, 117, 197);
     color: rgb(46, 98, 200);
     height: 100%;
+    margin-top: 0%;
 }
 
 nav :hover {

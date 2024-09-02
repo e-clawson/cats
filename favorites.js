@@ -4,23 +4,23 @@
 let likeCatButton = document.getElementById("")
 console.log(likeCatButton);
 
-likeCatButton.addEventListener("click", event => {
-    console.log(event.id)
-})
+// likeCatButton.addEventListener("click", event => {
+//     console.log(event.id)
+// })
 
-async function clickedLike(){
-    let rawBody = JSON.stringify({
-        "image_id": "id-of-image-to-favourite",
-        "sub_id":"user-123"
-    })
+// async function clickedLike(){
+//     let rawBody = JSON.stringify({
+//         "image_id": "id-of-image-to-favourite",
+//         "sub_id":"user-123"
+//     })
 
-    const newFavoriteCat = await fetch("https://api.thecatapi.com/v1/favourites", 
-        {
-            method: "POST",
-            headers: { "x-api-key" : "live_Es3cWPLAwQH0X3Nk48kJtEgjzAskeBrzI2ZYlFrxkScKv8daA1DF4XJKiS704Sgx"},
-            body: rawBody,
-        })
-}
+//     const newFavoriteCat = await fetch("https://api.thecatapi.com/v1/favourites", 
+//         {
+//             method: "POST",
+//             headers: { "x-api-key" : "live_Es3cWPLAwQH0X3Nk48kJtEgjzAskeBrzI2ZYlFrxkScKv8daA1DF4XJKiS704Sgx"},
+//             body: rawBody,
+//         })
+// }
 
 // display a favorite 
 
