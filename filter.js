@@ -1,4 +1,7 @@
-// filter by breed 
+// this index.js handles the work to filter by breed 
+
+//find the breed filter in index.html and cache to a variable "breedFilter"
+const breedFilter = document.getElementById("breed-filter")
 
 //start with a fetch request to get each of the breeds
 async function breedLoad(){
@@ -10,12 +13,16 @@ async function breedLoad(){
         let breedOption = document.createElement("option");
         breedOption.textContent = breed;
         breedOption.setAttribute("id", idValue);
-        breedSelect.appendChild(breedOption);
+        breedFilter.appendChild(breedOption);
     });
 }
 breedLoad()
 
 // add the breed information to the dropdown menu 
 
-const breedFilter = document.getElementById("breed-filter")
-console.log(breedFilter)
+// create eventlistener for the breedFilter element
+breedFilter.addEventListener("change", (event)=> {
+    let index = breedFilter.selectedIndex;
+   
+
+})
