@@ -42,22 +42,19 @@ async function breedInfo(id) {
     //wait for the response, turn it into json, and store the response in the variable jsonData
     const jsonData = await response.json();
     //cache information from the first object in the array in variable
-    const firstInstance = jsonData[0]
+    let catData = jsonData[0];
+
+    breedInfoCard(catData);
+
     //pass that variable to a function so it can be used to make info card 
-    breedInfo(firstInstance);
+
     //for each object in the returned array, create a display card and display the image
-    jsonData.forEach(element => {
-        //store the img url in the variable img
+    await jsonData.forEach(element => {
         let img = element.url;
-        console.log(element.url); //check that it works - it is sending at least one back
-        // create a div
-         // store the div with the filter-imgs id in a variable 
         const catFilterImgCard = document.getElementById("filter-imgs");
         let catBreedImg = document.createElement("img");
-        // add a class of "cat-breed-img" to the above div - so we can target each breed image for future styling
         catBreedImg.setAttribute("class", "cat-breed-img");
         catBreedImg.setAttribute("src", img);
-        //add the new breed image to the catFilter div
         catFilterImgCard.appendChild(catBreedImg);
         //currently this is wrking but it is causing an error code: 429 - too many requests
         //I think this means it is reutrning more data than it can process
@@ -68,6 +65,8 @@ async function breedInfo(id) {
 
 }
 
-function breedImg() {
+async function breedInfoCard(catData) {
+    let catCardInfo = catData.breeds[0];
+    console.log(catCardInfo);
 
 }
