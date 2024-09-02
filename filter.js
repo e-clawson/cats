@@ -37,8 +37,41 @@ breedFilter.addEventListener("change", (event)=> {
 
 // function to grab the cat info and display on the page based on the selected cat id from the dropdown element
 async function breedInfo(id) {
-
+    //fetch the breed information from the API using the selected cat breed id from event listener
     const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${id}&api_key=live_Es3cWPLAwQH0X3Nk48kJtEgjzAskeBrzI2ZYlFrxkScKv8daA1DF4XJKiS704Sgx`);
-    console.log(response)
+    //wait for the response, turn it into json, and store the response in the variable jsonData
+    const jsonData = await response.json();
+    //cache information from the first object in the array in variable
+    const firstInstance = jsonData[0]
+    //pass that variable to a function so it can be used to make info card 
+    breedInfo(firstInstance);
+    //for each object in the returned array, create a display card and display the image
+    jsonData.forEach(element => {
+        //store the img url in the variable img
+        let img = element.url;
+        console.log(element.url); //check that it works - it is sending at least one back
+        // create a div
+         // store the div with the filter-imgs id in a variable 
+        const catFilterImgCard = document.getElementById("filter-imgs");
+        let catBreedImg = document.createElement("div");
+        // add a class of "cat-breed-img" to the above div - so we can target each breed image for future styling
+        catBreedImg.setAttribute("class", "cat-breed-img");
+        // create an img 
+        let breedPic = document.createElement("img");
+        //set the source for the image element to the cached image
+        breedPic.setAttribute("src", img);
+        //add the new breed image to the catFilter div
+        catFilterImgCard.appendChild(catBreedImg);
+        //currently this is wrking but it is causing an error code: 429 - too many requests
+        //I think this means it is reutrning more data than it can process
+        //and so it is crashing and I need to use whats called "rate-limiting" 
+        //so it sends me fewer pictures at once or slows down the rate that it sends pictures so my 
+        //browser can catch up 
+        
+    })
+
+}
+
+function breedImg() {
 
 }
