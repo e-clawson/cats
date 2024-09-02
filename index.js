@@ -39,7 +39,7 @@ initialLoad()
 
 let navBarTabs = [
     { text: "home", class:"", class:"home"},
-    { text: "filter", class:"", class:"filter" },
+    { text: "Breed Filter", class:"", class:"filter" },
     { text: "favorites", class:"", class:"favorite"},
 ]
 
@@ -49,5 +49,67 @@ let headerEl = document.getElementById("header");
 headerEl.appendChild(navBar);
 navBar.classList.add("flex-around");
 
+//used forEach to make an <a> element for each tab
+navBarTabs.forEach((link) => {
+    const navTabs = document.createElement("a");
+    navTabs.textContent = link.text;
+    navTabs.classList = link.class
+    navBar.appendChild(navTabs)
+})
 
+let navTabs = document.querySelectorAll("a")
 
+navBar.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (event.target !== "a"){
+        navTabs.forEach((link) => {
+          let isCurrentEvent = link == event.target;
+          if (link !== event.target) {
+            link.classList.remove("active");
+          }
+          if (isCurrentEvent) {
+            if (link.classList == "active") {
+              link.classList.remove("active"); 
+            } else {
+              link.classList.add("active");
+              let info = link.classList;
+              let otherInfo = Array.from(info);
+              console.log(otherInfo);
+              itemDisplay(otherInfo);
+              
+            } 
+          }
+        });
+    }
+});
+
+function itemDisplay(otherInfo) {
+    let homeDiv = document.getElementById("home");
+    // let homeDivId = homeDiv.id;
+    let homeDivArray = homeDiv.classList
+    let realHomeDivArray = Array.from(homeDivArray)
+    let filterDiv = document.getElementById("filter");
+    // let aboutDivId = aboutDiv.id;
+    let filterDivArray = filterDiv.classList
+    let realFilterDivArray = Array.from(filterDivArray)
+
+    let favoriteDiv = document.getElementById("favorites");
+    let favoriteDivArray = favoriteDiv.classList
+    let realFavoriteDivArray = Array.from(favoriteDivArray)
+
+    if (otherInfo.includes("home") && otherInfo.includes("active")) {
+        homeDiv.classList.remove("default")
+        aboutDiv.classList.add("default");
+        favoriteDiv.classList.add("default");
+    } 
+    if (otherInfo.includes("about") == true && realFilterDivArray.includes("default")) {
+        homeDiv.classList.add("default");
+        aboutDiv.classList.remove("default");
+        favoriteDiv.classList.add("default");
+    } 
+    if (otherInfo.includes("favorite") == true && realFavoriteDivArray.includes("default")) {
+        homeDiv.classList.add("default");
+        aboutDiv.classList.add("default");
+        favoriteDiv.classList.remove("default");
+    }
+  }
