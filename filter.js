@@ -53,13 +53,10 @@ async function breedInfo(id) {
         // create a div
          // store the div with the filter-imgs id in a variable 
         const catFilterImgCard = document.getElementById("filter-imgs");
-        let catBreedImg = document.createElement("div");
+        let catBreedImg = document.createElement("img");
         // add a class of "cat-breed-img" to the above div - so we can target each breed image for future styling
         catBreedImg.setAttribute("class", "cat-breed-img");
-        // create an img 
-        let breedPic = document.createElement("img");
-        //set the source for the image element to the cached image
-        breedPic.setAttribute("src", img);
+        catBreedImg.setAttribute("src", img);
         //add the new breed image to the catFilter div
         catFilterImgCard.appendChild(catBreedImg);
         //currently this is wrking but it is causing an error code: 429 - too many requests
@@ -67,7 +64,6 @@ async function breedInfo(id) {
         //and so it is crashing and I need to use whats called "rate-limiting" 
         //so it sends me fewer pictures at once or slows down the rate that it sends pictures so my 
         //browser can catch up 
-        
     })
 
 }

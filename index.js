@@ -7,16 +7,11 @@ const catCardContainer = document.getElementById("card-container");
 async function initialLoad(){
     const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10")
     const jsonData = await response.json(); 
-    console.log(jsonData)
     await jsonData.forEach(element => {
         let id = element.id;
-        //img
-        // console.log(id)
         let imgUrl = element.url;
-        // console.log(element)
-        console.log(imgUrl)
 
-        //creating art cards
+        //creating cat cards
         let catCard = document.createElement("div");
         catCard.setAttribute("id", id);
         // artCard.setAttribute("style", "");
@@ -27,7 +22,6 @@ async function initialLoad(){
         catCardContainer.appendChild(catCard);
         catCard.appendChild(cardImg);
     });
-    console.log(catCardContainer)
 
 }
 initialLoad()
@@ -71,7 +65,6 @@ navBar.addEventListener("click", (event) => {
               link.classList.add("active");
               let info = link.classList;
               let otherInfo = Array.from(info);
-              console.log(otherInfo);
               itemDisplay(otherInfo);
               
             } 
@@ -84,7 +77,6 @@ function itemDisplay(otherInfo) {
     let homeDiv = document.getElementById("home");
     // let homeDivId = homeDiv.id;
     let homeDivArray = homeDiv.classList
-    let realHomeDivArray = Array.from(homeDivArray)
 
     let filterDiv = document.getElementById("filter");
     let filterDivId = filterDiv.id;
@@ -101,7 +93,6 @@ function itemDisplay(otherInfo) {
         favoriteDiv.classList.add("default");
     } 
     if (otherInfo.includes("filter") == true && realFilterDivArray.includes("default")) {
-        console.log("hi")
         homeDiv.classList.add("default");
         filterDiv.classList.remove("default");
         favoriteDiv.classList.add("default");
