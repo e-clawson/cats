@@ -34,3 +34,11 @@ async function initialLoad(){
 
 }
 initialLoad()
+
+//  Nav bar 
+
+let navBarTabs = [
+    { text: "home", class:"", class:"home"},
+    { text: "filter", class:"", class:"filter" },
+    { text: "favorites", class:"", class:"favorite"},
+]
