@@ -2,59 +2,35 @@
 // and the function to create the cards for each of the pieces of art 
 //and the function to change the navbar display
 
-const artCardContainer = document.getElementById("card-container");
+const catCardContainer = document.getElementById("card-container");
 
 async function initialLoad(){
-    const response = await fetch("https://api.artic.edu/api/v1/artworks")
+    const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10")
     const jsonData = await response.json(); 
+    console.log(jsonData)
 
     let newData = jsonData;
 
-    await newData.data.forEach(element => {
+    await newData.forEach(element => {
         let id = element.id;
         //img
-        let imgId = element.image_id;
-        // let lqipImg = element.thumbnail.lqip;
-        let altText = element.alt_text;
-        //artist info
-        let artist = element.artist_title;
-        let artistId = element.artist_id;
-        let artistDisplay = element.artist_display;
-        //art info 
-        let title = element.title;
-        let refNum = element.main_reference_number;
-        let date = element.date_display;
-        let placeOfOrg = element.place_of_origin;
-        let artType = element.artwork_type_title;
-        let artDescription = element.description; 
-      
+        // console.log(id)
+        let imgUrl = element.url;
+        // console.log(element)
+        console.log(imgUrl)
 
         //creating art cards
-        let artCard = document.createElement("div");
-        artCard.setAttribute("id", id);
-        artCard.setAttribute("class", "artistId");
+        let catCard = document.createElement("div");
+        catCard.setAttribute("id", id);
         // artCard.setAttribute("style", "");
-        artCard.classList.add("card");
-        let cardTitle = document.createElement("h3");
-        cardTitle.innerHTML = title;
-        cardTitle.setAttribute("class", "card-title");
-        let cardArtist = document.createElement("h4");
-        cardArtist.innerHTML = artist;
-        let cardDate = document.createElement("p");
-        cardDate.innerHTML = date;
+        catCard.classList.add("card");
         let cardImg = document.createElement("img");
-        cardImg.setAttribute("src",`https://www.artic.edu/iiif/2/${imgId}/full/300,/0/default.jpg`)
-        let cardDescription = document.createElement("p");
-        cardDescription.innerHTML = artDescription
+        cardImg.setAttribute("src",imgUrl)
 
-        artCardContainer.appendChild(artCard);
-        artCard.appendChild(cardTitle);
-        artCard.appendChild(cardImg);
-        artCard.appendChild(cardArtist);
-        artCard.appendChild(cardDate);
-        artCard.appendChild(cardDescription);
+        catCardContainer.appendChild(catCard);
+        catCard.appendChild(cardImg);
     });
-    console.log(artCardContainer)
+    console.log(catCardContainer)
 
 }
 initialLoad()
