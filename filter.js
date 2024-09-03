@@ -78,7 +78,7 @@ async function breedInfoCard(catData) {
     let breedName = catCardInfo.name;
     let description = catCardInfo.description;
     // let origin = catCardInfo.origin;
-    let breedCardName = document.createElement("h2")
+    let breedCardName = document.createElement("h3")
     breedCardName.setAttribute("id", "catName")
     breedCardName.textContent = breedName;
     let breedCardDesc = document.createElement("p")

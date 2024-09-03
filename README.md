@@ -87,7 +87,6 @@ Create your application locally, and initialize a local git repo. Make frequent 
     - so far so good
 
 - Create an engaging user experience through the use of HTML and CSS. (5%)
-    - will do at the end
 
 - Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). (10%)
     - currently running without errors (mostly - cat filter needs something to clear all the cats from the previous dropdown) 

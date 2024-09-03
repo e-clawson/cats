@@ -7,10 +7,11 @@ const catCardContainer = document.getElementById("card-container");
 async function initialLoad(){
     const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10")
     const jsonData = await response.json(); 
+    console.log(jsonData)
     await jsonData.forEach(element => {
         let id = element.id;
         let imgUrl = element.url;
-        
+
         //creating cat cards
         let catCard = document.createElement("div");
         catCard.setAttribute("id", id);
@@ -19,8 +20,9 @@ async function initialLoad(){
         cardImg.setAttribute("src",imgUrl)
         cardImg.setAttribute("id", "cat-image")
         let likeButton = document.createElement("button")
-        likeButton.textContent = "favorite this cat"
+        likeButton.textContent = "💖"
         likeButton.setAttribute("type", "button")
+        likeButton.setAttribute("class", "buttons")
         likeButton.setAttribute("onclick", "clikedLike()")
 
         catCardContainer.appendChild(catCard);
@@ -36,8 +38,8 @@ initialLoad()
 
 let navBarTabs = [
     { text: "HOME", class:"", class:"home"},
-    { text: "FILTER BY BREED", class:"", class:"filter" },
-    { text: "FAVORITES", class:"", class:"favorite"},
+    { text: "BREED INFO", class:"", class:"filter" },
+    { text: "FAVORITES 💖", class:"", class:"favorite"},
 ]
 
 //created NavBar

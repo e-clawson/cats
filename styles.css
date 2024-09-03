@@ -7,6 +7,7 @@ body {
     display: none;
 }
 
+/* header */
 h1 {
     text-align: center;
     font-size: 48px;
@@ -24,18 +25,18 @@ h1 {
 /* navbar */
 nav {
     background-color: rgb(196, 117, 197);
-    color: rgb(46, 98, 200);
+    color: rgb(0, 134, 158);
     height: 100%;
     margin-top: 0%;
 }
 
 nav :hover {
-    background-color: rgb(180, 213, 241);
+    background-color: rgb(228, 169, 229);
 }
 
 nav a.active {
-    background-color: rgb(180, 213, 241);
-    color: rgb(116, 114, 114);
+    background-color: rgb(253, 149, 255);
+    color: rgb(6, 171, 200);
   }
 
 a {
@@ -45,6 +46,21 @@ a {
 }
 
 /* content display */
+h2 {
+    text-align: center;
+    font-size:  32px;
+    color:blueviolet;
+    padding: 20px;
+    margin: 0%;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
 
 .flex-ctr { 
     display: flex;
@@ -92,6 +108,9 @@ a {
 /* filter page styling */
 .filter-info.h2 {
     text-align: center;
+}
+select#breed-filter {
+    margin: auto;
 }
 .filter-imgs {
     align-items: grid;
