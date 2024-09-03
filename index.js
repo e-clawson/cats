@@ -23,7 +23,6 @@ async function initialLoad(){
         likeButton.textContent = "💖"
         likeButton.setAttribute("type", "button")
         likeButton.setAttribute("class", "buttons")
-        likeButton.setAttribute("onclick", "clikedLike()")
 
         catCardContainer.appendChild(catCard);
         catCard.appendChild(cardImg);

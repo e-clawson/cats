@@ -1,47 +1,32 @@
 //where POST request will be to add and delete favorites 
 
 //create a favorite 
-const buttons = document.getElementsByClassName("buttons")
+const buttons = document.getElementById("card-container")
 
+buttons.addEventListener("click", event =>{
+    let id = event.target.parentNode.id
+   
+    clickedLike(id)
+})
 
-// buttons.addEventListener("click", event =>{
-//     console.log(event.id)
-// })
+async function clickedLike(id){
 
-async function clickedLike(){
-    
-    // let rawBody = JSON.stringify({
-    //     "id": "8r",
-    //     "sub_id":"user-1390"
-    // });
+    var rawBody = JSON.stringify({ 
+        "image_id": `${id}`,
+        "sub_id": "user-123"
+         });
 
-    const newFavoriteCat = await fetch(
-        "https://api.thecatapi.com/v1/favourites", 
+    const response = await fetch("https://api.thecatapi.com/v1/favourites", 
         {
             method: 'POST',
-            headers: {
-                'x-api-key': 'live_Es3cWPLAwQH0X3Nk48kJtEgjzAskeBrzI2ZYlFrxkScKv8daA1DF4XJKiS704Sgx'
+            headers:{
+                'content-type': 'application/json',
+                'x-api-key': 'live_Es3cWPLAwQH0X3Nk48kJtEgjzAskeBrzI2ZYlFrxkScKv8daA1DF4XJKiS704Sgx',
             },
-            body: JSON.stringify({
-                "id": "8r",
-                "sub_id":"user-1390"
-            }),
-        })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-        console.log(json)
-    
+            body: rawBody,
+        });
+    console.log(response)   
 }
-
-async function alertResponse(response) {
-    if (response.ok) {
-        const textData = await response.text();
-        alert(textData);
-    } else {
-        alert("The request returned a status other than 200 OK: " + response.status);
-    }
-}
-clickedLike()
 
 // display a favorite 
 
