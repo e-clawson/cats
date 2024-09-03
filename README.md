@@ -72,7 +72,7 @@ Create your application locally, and initialize a local git repo. Make frequent 
 
 - Enable user manipulation of data within the API through the use of POST, PUT, or PATCH requests. Ensure your chosen API supports this feature before beginning.(15%)
 
-    - working on a favoriteimg feature which allows users to click a favorite button and add that image to their favorites cat page, and delete cats from their favroites page 
+    -favoriteimg feature which allows users to click a favorite button and add that image to their favorites cat page, and delete cats from their favroites page 
 
 - Make use of Promises and async/await syntax as appropriate. (15%)
     - done in the initialLoad function in index.js (line 7)
@@ -89,7 +89,6 @@ Create your application locally, and initialize a local git repo. Make frequent 
 - Create an engaging user experience through the use of HTML and CSS. (5%)
 
 - Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). (10%)
-    - currently running without errors (mostly - cat filter needs something to clear all the cats from the previous dropdown) 
 
 - Commit frequently to the git repository. (5%)
    
