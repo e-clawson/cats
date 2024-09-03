@@ -76,17 +76,24 @@ p {
 
 
 /* cat cards styling  */
-#cat-cards {
+#card-container {
     display: flex;
-    margin: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
+
+ 
 .card {
     border: 2px solid black;
     transition: 0.5s;
-    width: 30%;
+    width: 50%;
     border-radius: 5px;
     padding: 10px;
     background-color: white;
+    margin: 10px;
   }
   
   .card:hover {
